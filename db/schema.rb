@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150105150640) do
+ActiveRecord::Schema.define(version: 20150106060543) do
+
+  create_table "todos", force: true do |t|
+    t.boolean  "done",       default: false
+    t.string   "content"
+    t.integer  "user_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "todos", ["user_id"], name: "index_todos_on_user_id"
 
   create_table "users", force: true do |t|
     t.datetime "created_at",       null: false

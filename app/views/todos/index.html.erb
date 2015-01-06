@@ -8,7 +8,11 @@
   <% end %>
 </div>
 <% if current_user %>
+  <%= render 'todo_form' %>
   <div class="row">
-    <span>Something needs to be here</span>
+    <!-- List of tasks -->
+    <% if @todo_items.any? %>
+      <%= render @todo_items %>
+    <% end %>
   </div>
 <% end %>

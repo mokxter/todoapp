@@ -1,0 +1,5 @@
+<div class="col-md-12">
+    <span><%= todo.content %> - <%= todo.created_at.strftime("%b %e, %l:%M %p") %>i | </span>
+    <%= link_to "Delete", todo, method: :delete, data: { confirm: "You sure?" } %>
+    <hr></hr>
+</div>

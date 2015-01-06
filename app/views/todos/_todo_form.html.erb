@@ -1,0 +1,10 @@
+<div class="row">
+  <!-- New todo form -->
+  <div class="col-md-12">
+  <%= form_for(@todo) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <%= f.text_field :content, placeholder: "Todo...", class: "col-md-12" %>
+      <%= f.submit "Post", class: "btn btn-primary col-md-12" %>
+  <% end %>
+  </div>
+</div>
