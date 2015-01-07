@@ -12,9 +12,6 @@ class User < ActiveRecord::Base
     end
   end
 
-  def create
-  end
-
   def todolist
     Todo.where("user_id = ?", id)
   end

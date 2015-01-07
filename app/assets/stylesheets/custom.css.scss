@@ -10,9 +10,12 @@ hr {
   margin: 0 auto;
 }
 
-.row {
-  margin-top: 10px;
+#login-row, #todo-form-row {
   margin-bottom: 50px;
+}
+
+.todo-item {
+  margin-top: 10px;
 }
 
 

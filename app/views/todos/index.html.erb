@@ -1,5 +1,5 @@
-<h1 class="text-center">TODO</h1>
-<div class="row">
+<h1 class="text-center">To-do List</h1>
+<div id="login-row" class="row">
   <% if current_user %>
     Hello, <strong><%= current_user.name %></strong>
     <%= link_to "Sign out", signout_path, id: "sign_out" %>

@@ -1,9 +1,15 @@
-<div class="col-md-12">
-    <%= form_for todo, :remote => true do |f| %>
-    <%= render 'shared/error_messages', object: f.object %>
-    <%= f.check_box :done, :label => todo.done, :onchange => 'this.form.submit()', :checked_value => true, :unchecked_value => false %>
-    <% end %>
-    <span><%= todo.content %> - <%= todo.created_at.strftime("%b %e, %l:%M %p") %>i | </span>
-    <%= link_to "Delete", todo, method: :delete, data: { confirm: "You sure?" } %>
-    <hr></hr>
+<div class="col-md-12 todo-item">
+  <div class="row">
+    <div class="col-md-1">
+      <%= form_for todo, :remote => true do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <%= f.check_box :done, :label => todo.done, :onchange => 'this.form.submit()', :checked_value => true, :unchecked_value => false %>
+      <% end %>
+    </div>
+    <div class="col-md-11">
+      <span><%= todo.content %> - <%= todo.created_at.strftime("%b %e, %l:%M %p") %> | </span>
+      <%= link_to "Delete", todo, method: :delete, data: { confirm: "You sure?" } %>
+    </div>
+  </div>
+  <hr></hr>
 </div>
