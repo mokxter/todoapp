@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   # get 'login' => 'sessions#new'
 
   resources :sessions, only: [:create, :destroy]
-  resources :todos, only: [:create, :destroy]
+  resources :todos, only: [:create, :update,  :destroy]
   # resource :home, only: [:show]
 
   # get 'sessions/create'

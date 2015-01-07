@@ -11,12 +11,18 @@ class TodosController < ApplicationController
     if @todo.save
       redirect_to root_url
     else
-      @todo_items = []
+      @todo_items = current_user.todolist
       render 'todos/index'
     end
   end
 
   def update
+    @todo = current_user.todos.find_by(id: params[:id])
+    @todo.update_attribute(:done, params[:todo][:done].to_i)
+    @todo = current_user.todos.build
+    @todo_items = current_user.todolist
+    render 'todos/index'
+
   end
 
   def destroy
