@@ -18,4 +18,9 @@ class User < ActiveRecord::Base
   def todolist
     Todo.where("user_id = ?", id)
   end
+
+  def post_permission?
+    user = FbGraph::User.me(self.oauth_token)
+    user.permissions.include?(:publish_actions)
+  end
 end

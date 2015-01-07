@@ -18,7 +18,13 @@ class TodosController < ApplicationController
 
   def update
     @todo = current_user.todos.find_by(id: params[:id])
-    @todo.update_attribute(:done, params[:todo][:done].to_i)
+    if @todo.update_attribute(:done, params[:todo][:done].to_i)
+      if @todo.done
+        if current_user.post_permission?
+          FbGraph::User.me(current_user.oauth_token).feed!( :message => @todo.content )
+        end
+      end
+    end
     @todo = current_user.todos.build
     @todo_items = current_user.todolist
     render 'todos/index'
