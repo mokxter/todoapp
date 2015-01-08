@@ -16,6 +16,10 @@ class TodosController < ApplicationController
     end
   end
 
+  def show
+    @todo = current_user.todos.find_by(id: params[:id])
+  end
+
   def update
     @todo = current_user.todos.find_by(id: params[:id])
     if @todo.update_attribute(:done, params[:todo][:done].to_i)
