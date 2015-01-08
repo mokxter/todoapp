@@ -26,14 +26,15 @@ class TodosController < ApplicationController
       # Post to facebook only if done is true
       if @todo.done
         # check if app has corrent permission
-        if current_user.post_permission?
-          # Post the content of To-do item to user's facebook wall
-          FbGraph::User.me(current_user.oauth_token).feed!( :message => @todo.content )
-        end
+        # if current_user.post_permission?
+        #   # Post the content of To-do item to user's facebook wall
+        #   FbGraph::User.me(current_user.oauth_token).feed!( :message => @todo.content )
+        # end
         redirect_to "https://www.facebook.com/dialog/share?app_id=794630217239782&display=popup&href=#{todo_url(@todo)}&redirect_uri=https://ian-todo.herokuapp.com"
+      else
+        redirect_to root_path
       end
     end
-    redirect_to root_path
   end
 
   def destroy
