@@ -17,7 +17,7 @@ class TodosController < ApplicationController
   end
 
   def show
-    @todo = current_user.todos.find_by(id: params[:id])
+    @todo = Todo.find_by(id: params[:id])
   end
 
   def update
