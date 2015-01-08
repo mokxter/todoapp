@@ -32,7 +32,8 @@ class TodosController < ApplicationController
         end
       end
     end
-    redirect_to todo_url(@todo)
+    redirect_to "https://www.facebook.com/dialog/share?app_id=794630217239782&display=popup&href=#{todo_url(@todo)}&redirect_uri=https://ian-todo.herokuapp.com"
+
 
   end
 
