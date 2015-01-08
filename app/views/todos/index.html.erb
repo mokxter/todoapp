@@ -1,12 +1,4 @@
-<h1 class="text-center">To-do List</h1>
-<div id="login-row" class="row">
-  <% if current_user %>
-    Hello, <strong><%= current_user.name %></strong>
-    <%= link_to "Sign out", signout_path, id: "sign_out" %>
-  <% else %>
-    <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
-  <% end %>
-</div>
+
 <% if current_user %>
   <%= render 'todo_form' %>
   <div class="row">
