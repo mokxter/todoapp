@@ -32,7 +32,7 @@ class TodosController < ApplicationController
         end
       end
     end
-    redirect_to root_path
+    redirect_to todo_url(@todo)
 
   end
 
