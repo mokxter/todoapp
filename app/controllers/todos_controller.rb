@@ -30,11 +30,10 @@ class TodosController < ApplicationController
           # Post the content of To-do item to user's facebook wall
           FbGraph::User.me(current_user.oauth_token).feed!( :message => @todo.content )
         end
+        redirect_to "https://www.facebook.com/dialog/share?app_id=794630217239782&display=popup&href=#{todo_url(@todo)}&redirect_uri=https://ian-todo.herokuapp.com"
       end
     end
-    redirect_to "https://www.facebook.com/dialog/share?app_id=794630217239782&display=popup&href=#{todo_url(@todo)}&redirect_uri=https://ian-todo.herokuapp.com"
-
-
+    redirect_to root_path
   end
 
   def destroy
